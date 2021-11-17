@@ -15,6 +15,8 @@ public class Controller : MonoBehaviour
     float accelRatePerSec;
     float forwardVelocity;
 
+    public GameObject brakeLight;
+
     public bool isSpeed = false;
 
     // Start is called before the first frame update
@@ -32,11 +34,13 @@ public class Controller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             isSpeed = true;
+            brakeLight.SetActive(false);
         }
 
         if (Input.GetKeyDown(KeyCode.S))
         {
             isSpeed = false;
+            brakeLight.SetActive(true);
         }
 
         if (isSpeed == true)

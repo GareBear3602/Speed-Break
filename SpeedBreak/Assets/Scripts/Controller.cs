@@ -12,6 +12,7 @@ public class Controller : MonoBehaviour
     public float speed;
     private float turnSpeed = 90;
     private float lap;
+    public bool reverse = false;
 
     public float maxSpeed = 1000.0f;
     public float timeZeroToMax = 10f;
@@ -20,7 +21,7 @@ public class Controller : MonoBehaviour
 
     public GameObject brakeLight;
 
-    public bool isSpeed = false;
+    public bool isSpeed = true;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +29,6 @@ public class Controller : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         accelRatePerSec = maxSpeed / timeZeroToMax;
         forwardVelocity = 0f;
-        isSpeed = false;
     }
 
     // Update is called once per frame
@@ -37,6 +37,7 @@ public class Controller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             isSpeed = true;
+            forwardVelocity = 0;
             brakeLight.SetActive(false);
         }
 
@@ -44,11 +45,19 @@ public class Controller : MonoBehaviour
         {
             isSpeed = false;
             brakeLight.SetActive(true);
+            reverse = true;
         }
 
         if (isSpeed == true)
         {
             forwardVelocity += accelRatePerSec * Time.deltaTime;
+            forwardVelocity = Mathf.Min(forwardVelocity, maxSpeed);
+            rb.velocity = transform.forward * forwardVelocity;
+        }
+
+        if (reverse == true)
+        {
+            forwardVelocity -= accelRatePerSec * Time.deltaTime;
             forwardVelocity = Mathf.Min(forwardVelocity, maxSpeed);
             rb.velocity = transform.forward * forwardVelocity;
         }

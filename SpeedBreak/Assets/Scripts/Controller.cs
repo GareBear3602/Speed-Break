@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class Controller : MonoBehaviour
 {
@@ -9,6 +11,7 @@ public class Controller : MonoBehaviour
     public float horizontalInput;
     public float speed;
     private float turnSpeed = 90;
+    private float lap;
 
     public float maxSpeed = 1000.0f;
     public float timeZeroToMax = 10f;

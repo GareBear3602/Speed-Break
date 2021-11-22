@@ -37,7 +37,8 @@ public class Controller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             isSpeed = true;
-            forwardVelocity = 0;
+            reverse = false;
+            //forwardVelocity = 0;
             brakeLight.SetActive(false);
         }
 

@@ -22,10 +22,12 @@ public class Controller : MonoBehaviour
     public GameObject brakeLight;
 
     public bool isSpeed = true;
+    private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         rb = GetComponent<Rigidbody>();
         accelRatePerSec = maxSpeed / timeZeroToMax;
         forwardVelocity = 0f;
@@ -34,36 +36,39 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (gameManager.runGame)
         {
-            isSpeed = true;
-            reverse = false;
-            //forwardVelocity = 0;
-            brakeLight.SetActive(false);
-        }
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                isSpeed = true;
+                reverse = false;
+                //forwardVelocity = 0;
+                brakeLight.SetActive(false);
+            }
 
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            isSpeed = false;
-            brakeLight.SetActive(true);
-            reverse = true;
-        }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                isSpeed = false;
+                brakeLight.SetActive(true);
+                reverse = true;
+            }
 
-        if (isSpeed == true)
-        {
-            forwardVelocity += accelRatePerSec * Time.deltaTime;
-            forwardVelocity = Mathf.Min(forwardVelocity, maxSpeed);
-            rb.velocity = transform.forward * forwardVelocity;
-        }
+            if (isSpeed == true)
+            {
+                forwardVelocity += accelRatePerSec * Time.deltaTime;
+                forwardVelocity = Mathf.Min(forwardVelocity, maxSpeed);
+                rb.velocity = transform.forward * forwardVelocity;
+            }
 
-        if (reverse == true)
-        {
-            forwardVelocity -= accelRatePerSec * Time.deltaTime;
-            forwardVelocity = Mathf.Min(forwardVelocity, maxSpeed);
-            rb.velocity = transform.forward * forwardVelocity;
-        }
+            if (reverse == true)
+            {
+                forwardVelocity -= accelRatePerSec * Time.deltaTime;
+                forwardVelocity = Mathf.Min(forwardVelocity, maxSpeed);
+                rb.velocity = transform.forward * forwardVelocity;
+            }
 
-        horizontalInput = Input.GetAxis("Horizontal");
-        transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
+            horizontalInput = Input.GetAxis("Horizontal");
+            transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
+        }
     }
 }

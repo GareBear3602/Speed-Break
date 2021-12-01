@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LapTrigger : MonoBehaviour
+public class FinalLapTrigger : MonoBehaviour
 {
     private GameManager gameManager;
 
@@ -20,6 +20,6 @@ public class LapTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        gameManager.UpdateLap(1);
+        gameManager.EndGame();
     }
 }

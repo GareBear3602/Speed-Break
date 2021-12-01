@@ -10,22 +10,47 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI laptext;
     public float lapcount;
     private float lap;
+    public GameObject lapTrigger;
+    public GameObject finalTrigger;
+
+    //Main Menu
+    public Button mainMenu;
+    public GameObject mainBack;
+
+    //Game Run
+    public bool runGame;
 
     // Start is called before the first frame update
     void Start()
     {
-        UpdateLap(1);
+
     }
 
-    // Update is called once per frame
     void Update()
     {
-
+        if (lap == 3)
+        {
+            lapTrigger.gameObject.SetActive(false);
+            finalTrigger.gameObject.SetActive(true);
+        }
     }
 
     public void UpdateLap(int lapAdd)
     {
         lap += lapAdd;
         laptext.text = "Lap: " + lap + "/3";
+    }
+
+    public void StartGame()
+    {
+        mainMenu.gameObject.SetActive(false);
+        mainBack.gameObject.SetActive(false);
+        runGame = true;
+        UpdateLap(1);
+    }
+
+    public void EndGame()
+    {
+        runGame = false;
     }
 }

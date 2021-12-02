@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 4463441632562557042}
   - component: {fileID: 4462352348227753701}
   m_Layer: 0
-  m_Name: Barrier (1)
+  m_Name: Barrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnManager : MonoBehaviour
+public class PointTriggerSpawn : MonoBehaviour
 {
-    public GameObject pointPrefab;
     private GameManager gameManager;
+    public GameObject pointPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -16,10 +16,14 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameManager.runGame)
-        {
-            Instantiate(pointPrefab, PointSpawn(), pointPrefab.transform.rotation);
-        }
+        
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        Instantiate(pointPrefab, PointSpawn(), pointPrefab.transform.rotation);
+        Instantiate(pointPrefab, PointSpawn(), pointPrefab.transform.rotation);
+        Instantiate(pointPrefab, PointSpawn(), pointPrefab.transform.rotation);
     }
 
     private Vector3 PointSpawn()

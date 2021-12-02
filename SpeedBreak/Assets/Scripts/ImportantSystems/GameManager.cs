@@ -20,9 +20,12 @@ public class GameManager : MonoBehaviour
     //Game Run
     public bool runGame;
     public TextMeshProUGUI scoretext;
+    public TextMeshProUGUI besttext;
 
     //Scoring
-    public float score;
+    public float score = 0;
+    public float best;
+
 
     // Start is called before the first frame update
     void Start()
@@ -62,5 +65,10 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         runGame = false;
+        if (score > best)
+        {
+            best = score;
+            besttext.text = "Best: " + best;
+        }
     }
 }

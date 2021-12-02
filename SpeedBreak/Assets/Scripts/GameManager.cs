@@ -19,6 +19,10 @@ public class GameManager : MonoBehaviour
 
     //Game Run
     public bool runGame;
+    public TextMeshProUGUI scoretext;
+
+    //Scoring
+    public float score;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +43,12 @@ public class GameManager : MonoBehaviour
     {
         lap += lapAdd;
         laptext.text = "Lap: " + lap + "/3";
+    }
+
+    public void UpdateScore(int scoreAdd)
+    {
+        score += scoreAdd;
+        scoretext.text = "Score: " + score;
     }
 
     public void StartGame()

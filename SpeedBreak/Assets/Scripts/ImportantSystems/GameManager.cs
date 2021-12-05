@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     private float lap;
     public GameObject lapTrigger;
     public GameObject finalTrigger;
+    public float lapPosZ = 44.5f;
+    public float lapPosY = 2.5f;
 
     //Main Menu
     public Button mainMenu;
@@ -87,5 +89,17 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void LapMoveUp()
+    {
+        lapTrigger.transform.position = new Vector3(0, 8, -lapPosZ);
+        finalTrigger.transform.position = new Vector3(0, lapPosY, -100);
+    }
+
+    public void LapMoveDown()
+    {
+        lapTrigger.transform.position = new Vector3(0, lapPosY, -lapPosZ);
+        finalTrigger.transform.position = new Vector3(0, lapPosY, -lapPosZ);
     }
 }

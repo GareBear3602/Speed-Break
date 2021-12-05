@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LapTrigger : MonoBehaviour
+public class LapLower : MonoBehaviour
 {
     private GameManager gameManager;
 
@@ -15,12 +15,11 @@ public class LapTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     void OnTriggerEnter(Collider other)
     {
-        gameManager.UpdateLap(1);
-        gameManager.LapMoveUp();
+        gameManager.LapMoveDown();
     }
 }

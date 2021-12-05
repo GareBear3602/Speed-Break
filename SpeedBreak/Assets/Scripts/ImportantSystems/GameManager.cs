@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +17,12 @@ public class GameManager : MonoBehaviour
     //Main Menu
     public Button mainMenu;
     public GameObject mainBack;
+
+    //End Menu
+    public GameObject endScreen;
+    public Button restart;
+    public TextMeshProUGUI endScore;
+    public TextMeshProUGUI endBest;
 
     //Game Run
     public bool runGame;
@@ -64,10 +71,21 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         runGame = false;
+        endScreen.gameObject.SetActive(true);
+        endScore.gameObject.SetActive(true);
+        endBest.gameObject.SetActive(true);
+        endScore.text = "Score: " + score;
+        endBest.text = "Best: " + best;
+        restart.gameObject.SetActive(true);
         if (score > best)
         {
             best = score;
             besttext.text = "Best: " + best;
         }
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

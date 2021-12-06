@@ -24,6 +24,11 @@ public class Controller : MonoBehaviour
     public bool isSpeed = true;
     private GameManager gameManager;
 
+    public AudioClip idle;
+    public AudioClip revUp;
+    public AudioClip fastIdle;
+    private AudioSource sourceAudio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +36,7 @@ public class Controller : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         accelRatePerSec = maxSpeed / timeZeroToMax;
         forwardVelocity = 0f;
+        sourceAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -44,6 +50,7 @@ public class Controller : MonoBehaviour
                 reverse = false;
                 //forwardVelocity = 0;
                 brakeLight.SetActive(false);
+                sourceAudio.PlayOneShot(revUp, 1.0f);
             }
 
             if (Input.GetKeyDown(KeyCode.S))

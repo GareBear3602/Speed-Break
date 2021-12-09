@@ -27,6 +27,6 @@ public class StartButton : MonoBehaviour
 
     void ClickyButton()
     {
-        gameManager.StartGame();
+        gameManager.Instructions();
     }
 }

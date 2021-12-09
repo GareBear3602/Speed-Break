@@ -36,6 +36,10 @@ public class GameManager : MonoBehaviour
     public float best;
     public float pointAdd = 1.0f;
 
+    //Instructions
+    public GameObject instructions;
+    public Button letsGo;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,8 +72,8 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        mainMenu.gameObject.SetActive(false);
-        mainBack.gameObject.SetActive(false);
+        instructions.gameObject.SetActive(false);
+        letsGo.gameObject.SetActive(false);
         runGame = true;
         UpdateLap(1);
     }
@@ -100,5 +104,14 @@ public class GameManager : MonoBehaviour
     {
         lapTrigger.transform.position = new Vector3(0, lapPosY, -lapPosZ);
         finalTrigger.transform.position = new Vector3(0, lapPosY, -lapPosZ);
+    }
+
+    public void Instructions()
+    {
+        instructions.gameObject.SetActive(true);
+        letsGo.gameObject.SetActive(true);
+        mainMenu.gameObject.SetActive(false);
+        mainBack.gameObject.SetActive(false);
+
     }
 }

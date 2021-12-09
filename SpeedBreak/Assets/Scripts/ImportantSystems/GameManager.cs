@@ -34,11 +34,13 @@ public class GameManager : MonoBehaviour
     //Scoring
     public float score = 0;
     public float best;
+    public float pointAdd = 1.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        scoretext.text = "Score: " + score;
+        besttext.text = "Rings: " + best + "/42";
     }
 
     void Update()
@@ -59,7 +61,9 @@ public class GameManager : MonoBehaviour
     public void UpdateScore(int scoreAdd)
     {
         score += scoreAdd;
+        best += pointAdd;
         scoretext.text = "Score: " + score;
+        besttext.text = "Rings: " + best + "/42";
     }
 
     public void StartGame()
@@ -77,13 +81,8 @@ public class GameManager : MonoBehaviour
         endScore.gameObject.SetActive(true);
         endBest.gameObject.SetActive(true);
         endScore.text = "Score: " + score;
-        endBest.text = "Best: " + best;
+        endBest.text = "Rings: " + best + "/42";
         restart.gameObject.SetActive(true);
-        if (score > best)
-        {
-            best = score;
-            besttext.text = "Best: " + best;
-        }
     }
 
     public void RestartGame()

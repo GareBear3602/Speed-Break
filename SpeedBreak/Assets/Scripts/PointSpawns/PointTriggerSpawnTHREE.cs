@@ -24,6 +24,7 @@ public class PointTriggerSpawnTHREE : MonoBehaviour
         Instantiate(pointPrefab, PointSpawn(), pointPrefab.transform.rotation);
         Instantiate(pointPrefab, PointSpawn(), pointPrefab.transform.rotation);
         Instantiate(pointPrefab, PointSpawn(), pointPrefab.transform.rotation);
+        Instantiate(pointPrefab, PointSpawn(), pointPrefab.transform.rotation);
     }
 
     private Vector3 PointSpawn()

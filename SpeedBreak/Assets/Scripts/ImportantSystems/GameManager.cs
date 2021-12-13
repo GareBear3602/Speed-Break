@@ -40,6 +40,14 @@ public class GameManager : MonoBehaviour
     public GameObject instructions;
     public Button letsGo;
 
+    //Camera Stuff
+    public GameObject firstCamera;
+    public GameObject lastCamera;
+
+    //Extras
+    public GameObject perfectTrophy;
+    public GameObject trophy;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -87,6 +95,13 @@ public class GameManager : MonoBehaviour
         endScore.text = "Score: " + score;
         endBest.text = "Rings: " + best + "/42";
         restart.gameObject.SetActive(true);
+        lastCamera.gameObject.SetActive(true);
+        firstCamera.gameObject.SetActive(false);
+        trophy.gameObject.SetActive(true);
+        if (best == 42)
+        {
+            perfectTrophy.gameObject.SetActive(true);
+        }
     }
 
     public void RestartGame()

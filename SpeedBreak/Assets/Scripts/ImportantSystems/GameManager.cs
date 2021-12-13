@@ -127,6 +127,10 @@ public class GameManager : MonoBehaviour
         letsGo.gameObject.SetActive(true);
         mainMenu.gameObject.SetActive(false);
         mainBack.gameObject.SetActive(false);
+    }
+
+    public void CarSelect()
+    {
 
     }
 }

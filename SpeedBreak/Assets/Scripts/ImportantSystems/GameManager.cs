@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     //Extras
     public GameObject perfectTrophy;
     public GameObject trophy;
-    private Vector3 spawnPos = new Vector3(0f, 0.7f, 35);
+    private Vector3 spawnPos = new Vector3(0f, 0.7f, -60);
     public float spawnPosY = 0.7f;
     public float spawnPosZ = 35f;
 
@@ -123,6 +123,7 @@ public class GameManager : MonoBehaviour
         {
             perfectTrophy.gameObject.SetActive(true);
         }
+        PlayerPrefs.SetFloat("Score", score);
     }
 
     public void RestartGame()
@@ -152,8 +153,6 @@ public class GameManager : MonoBehaviour
 
     public void ColorPick()
     {
-        
-
         instructions.gameObject.SetActive(false);
         letsGo.gameObject.SetActive(false);
         blueButton.gameObject.SetActive(true);

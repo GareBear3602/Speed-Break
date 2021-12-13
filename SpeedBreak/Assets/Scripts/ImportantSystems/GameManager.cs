@@ -47,6 +47,20 @@ public class GameManager : MonoBehaviour
     //Extras
     public GameObject perfectTrophy;
     public GameObject trophy;
+    private Vector3 spawnPos = new Vector3(0f, 0.7f, 35);
+    public float spawnPosY = 0.7f;
+    public float spawnPosZ = 35f;
+
+    //Colors
+    public GameObject blueCar;
+    public GameObject redCar;
+    public GameObject tangCar;
+    public GameObject vioCar;
+
+    public GameObject redButton;
+    public GameObject blueButton;
+    public GameObject tangButton;
+    public GameObject vioButton;
 
     // Start is called before the first frame update
     void Start()
@@ -80,8 +94,11 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        instructions.gameObject.SetActive(false);
-        letsGo.gameObject.SetActive(false);
+        blueButton.gameObject.SetActive(false);
+        redButton.gameObject.SetActive(false);
+        vioButton.gameObject.SetActive(false);
+        tangButton.gameObject.SetActive(false);
+        firstCamera.gameObject.SetActive(false);
         runGame = true;
         UpdateLap(1);
     }
@@ -129,8 +146,39 @@ public class GameManager : MonoBehaviour
         mainBack.gameObject.SetActive(false);
     }
 
-    public void CarSelect()
+    public void ColorPick()
     {
+        
 
+        instructions.gameObject.SetActive(false);
+        letsGo.gameObject.SetActive(false);
+        blueButton.gameObject.SetActive(true);
+        redButton.gameObject.SetActive(true);
+        vioButton.gameObject.SetActive(true);
+        tangButton.gameObject.SetActive(true);
+    }
+
+    public void CarBlue()
+    {
+        Instantiate(blueCar, spawnPos, transform.rotation);
+        StartGame();
+    }
+
+    public void CarRed()
+    {
+        Instantiate(redCar, spawnPos, transform.rotation);
+        StartGame();
+    }
+
+    public void CarViolet()
+    {
+        Instantiate(vioCar, spawnPos, transform.rotation);
+        StartGame();
+    }
+
+    public void CarTangerine()
+    {
+        Instantiate(tangCar, spawnPos, transform.rotation);
+        StartGame();
     }
 }

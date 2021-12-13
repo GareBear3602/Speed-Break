@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
     public float score = 0;
     public float best;
     public float pointAdd = 1.0f;
+    public GameObject scoreSystem;
+    public GameObject lapSystem;
 
     //Instructions
     public GameObject instructions;
@@ -99,6 +101,8 @@ public class GameManager : MonoBehaviour
         vioButton.gameObject.SetActive(false);
         tangButton.gameObject.SetActive(false);
         firstCamera.gameObject.SetActive(false);
+        lapSystem.gameObject.SetActive(true);
+        scoreSystem.gameObject.SetActive(true);
         runGame = true;
         UpdateLap(1);
     }

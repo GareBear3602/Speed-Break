@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColorPreview : MonoBehaviour
+public class BluePreview : MonoBehaviour
 {
     private GameManager gameManager;
 
@@ -20,6 +20,11 @@ public class ColorPreview : MonoBehaviour
 
     private void OnMouseOver()
     {
-        gameManager.RedPreview();
+        gameManager.BluePreview();
+    }
+
+    private void OnMouseDown()
+    {
+        gameManager.CarBlue();
     }
 }

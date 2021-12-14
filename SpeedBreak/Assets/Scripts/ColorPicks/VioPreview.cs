@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TangPreview : MonoBehaviour
+public class VioPreview : MonoBehaviour
 {
     private GameManager gameManager;
 
@@ -20,6 +20,11 @@ public class TangPreview : MonoBehaviour
 
     private void OnMouseOver()
     {
-        gameManager.TangPreview();
+        gameManager.VioPreview();
+    }
+
+    private void OnMouseDown()
+    {
+        gameManager.CarViolet();
     }
 }

@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
     public float spawnPosY = 0.7f;
     public float spawnPosZ = 35f;
     public GameObject exampleCar;
+    public GameObject playerCar;
 
     //Colors
     public GameObject blueCar;
@@ -60,20 +61,23 @@ public class GameManager : MonoBehaviour
     public GameObject tangCar;
     public GameObject vioCar;
 
-    public GameObject redButton;
-    public GameObject blueButton;
-    public GameObject tangButton;
-    public GameObject vioButton;
-
     public Material redColor;
     public Material blueColor;
     public Material tangColor;
     public Material vioColor;
+    public Material perriColor;
+    public Material greenColor;
+    public Material pinkColor;
+    public Material cyanColor;
 
     public GameObject rPreview;
     public GameObject bPreview;
     public GameObject tPreview;
     public GameObject vPreview;
+    public GameObject pPreview;
+    public GameObject gPreview;
+    public GameObject pkPreview;
+    public GameObject cPreview;
 
     // Start is called before the first frame update
     void Start()
@@ -111,10 +115,11 @@ public class GameManager : MonoBehaviour
         bPreview.gameObject.SetActive(false);
         tPreview.gameObject.SetActive(false);
         vPreview.gameObject.SetActive(false);
-        blueButton.gameObject.SetActive(false);
-        redButton.gameObject.SetActive(false);
-        vioButton.gameObject.SetActive(false);
-        tangButton.gameObject.SetActive(false);
+        pPreview.gameObject.SetActive(false);
+        gPreview.gameObject.SetActive(false);
+        pkPreview.gameObject.SetActive(false);
+        cPreview.gameObject.SetActive(false);
+
         firstCamera.gameObject.SetActive(false);
         exampleCar.gameObject.SetActive(false);
         lapSystem.gameObject.SetActive(true);
@@ -172,39 +177,67 @@ public class GameManager : MonoBehaviour
         bPreview.gameObject.SetActive(true);
         tPreview.gameObject.SetActive(true);
         vPreview.gameObject.SetActive(true);
+        pPreview.gameObject.SetActive(true);
+        gPreview.gameObject.SetActive(true);
+        pkPreview.gameObject.SetActive(true);
+        cPreview.gameObject.SetActive(true);
+
+
         exampleCar.gameObject.SetActive(true);
         instructions.gameObject.SetActive(false);
         letsGo.gameObject.SetActive(false);
-        blueButton.gameObject.SetActive(true);
-        redButton.gameObject.SetActive(true);
-        vioButton.gameObject.SetActive(true);
-        tangButton.gameObject.SetActive(true);
     }
-
+    
+    //Picks the Car Colors
     public void CarBlue()
     {
-        Instantiate(blueCar, spawnPos, transform.rotation);
+        playerCar.GetComponent<MeshRenderer>().material = blueColor;
         StartGame();
     }
 
     public void CarRed()
     {
-        Instantiate(redCar, spawnPos, transform.rotation);
+        playerCar.GetComponent<MeshRenderer>().material = redColor;
         StartGame();
     }
 
     public void CarViolet()
     {
-        Instantiate(vioCar, spawnPos, transform.rotation);
+        playerCar.GetComponent<MeshRenderer>().material = vioColor;
         StartGame();
     }
 
     public void CarTangerine()
     {
-        Instantiate(tangCar, spawnPos, transform.rotation);
+        playerCar.GetComponent<MeshRenderer>().material = tangColor;
         StartGame();
     }
 
+    public void CarPerriwinkle()
+    {
+        playerCar.GetComponent<MeshRenderer>().material = perriColor;
+        StartGame();
+    }
+
+    public void CarGreen()
+    {
+        playerCar.GetComponent<MeshRenderer>().material = greenColor;
+        StartGame();
+    }
+
+    public void CarPink()
+    {
+        playerCar.GetComponent<MeshRenderer>().material = pinkColor;
+        StartGame();
+    }
+
+    public void CarCyan()
+    {
+        playerCar.GetComponent<MeshRenderer>().material = cyanColor;
+        StartGame();
+    }
+
+    //Previews the Car Colors
     public void RedPreview()
     {
         exampleCar.GetComponent<MeshRenderer>().material = redColor;
@@ -223,5 +256,25 @@ public class GameManager : MonoBehaviour
     public void VioPreview()
     {
         exampleCar.GetComponent<MeshRenderer>().material = vioColor;
+    }
+
+    public void PerriPreview()
+    {
+        exampleCar.GetComponent<MeshRenderer>().material = perriColor;
+    }
+
+    public void GreenPreview()
+    {
+        exampleCar.GetComponent<MeshRenderer>().material = greenColor;
+    }
+
+    public void PinkPreview()
+    {
+        exampleCar.GetComponent<MeshRenderer>().material = pinkColor;
+    }
+
+    public void CyanPreview()
+    {
+        exampleCar.GetComponent<MeshRenderer>().material = cyanColor;
     }
 }

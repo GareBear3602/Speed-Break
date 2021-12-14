@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VioPreview : MonoBehaviour
+public class PinkPreview : MonoBehaviour
 {
     private GameManager gameManager;
 
@@ -20,6 +20,11 @@ public class VioPreview : MonoBehaviour
 
     private void OnMouseOver()
     {
-        gameManager.VioPreview();
+        gameManager.PinkPreview();
+    }
+
+    private void OnMouseDown()
+    {
+        gameManager.CarPink();
     }
 }

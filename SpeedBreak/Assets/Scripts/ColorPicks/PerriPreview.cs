@@ -5,6 +5,7 @@ using UnityEngine;
 public class PerriPreview : MonoBehaviour
 {
     private GameManager gameManager;
+    public GameObject perriSpot;
 
     // Start is called before the first frame update
     void Start()
@@ -21,10 +22,17 @@ public class PerriPreview : MonoBehaviour
     private void OnMouseOver()
     {
         gameManager.PerriPreview();
+        perriSpot.gameObject.SetActive(true);
+    }
+
+    private void OnMouseExit()
+    {
+        perriSpot.gameObject.SetActive(false);
     }
 
     private void OnMouseDown()
     {
         gameManager.CarPerriwinkle();
+        perriSpot.gameObject.SetActive(false);
     }
 }

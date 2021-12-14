@@ -5,6 +5,7 @@ using UnityEngine;
 public class GreenPreview : MonoBehaviour
 {
     private GameManager gameManager;
+    public GameObject greenSpot;
 
     // Start is called before the first frame update
     void Start()
@@ -21,10 +22,17 @@ public class GreenPreview : MonoBehaviour
     private void OnMouseOver()
     {
         gameManager.GreenPreview();
+        greenSpot.gameObject.SetActive(true);
+    }
+
+    private void OnMouseExit()
+    {
+        greenSpot.gameObject.SetActive(false);
     }
 
     private void OnMouseDown()
     {
         gameManager.CarGreen();
+        greenSpot.gameObject.SetActive(false);
     }
 }

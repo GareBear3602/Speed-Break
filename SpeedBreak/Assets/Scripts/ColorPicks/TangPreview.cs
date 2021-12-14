@@ -5,6 +5,7 @@ using UnityEngine;
 public class TangPreview : MonoBehaviour
 {
     private GameManager gameManager;
+    public GameObject tangSpot;
 
     // Start is called before the first frame update
     void Start()
@@ -21,10 +22,17 @@ public class TangPreview : MonoBehaviour
     private void OnMouseOver()
     {
         gameManager.TangPreview();
+        tangSpot.gameObject.SetActive(true);
+    }
+
+    private void OnMouseExit()
+    {
+        tangSpot.gameObject.SetActive(false);
     }
 
     private void OnMouseDown()
     {
         gameManager.CarTangerine();
+        tangSpot.gameObject.SetActive(false);
     }
 }

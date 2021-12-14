@@ -182,7 +182,6 @@ public class GameManager : MonoBehaviour
         pkPreview.gameObject.SetActive(true);
         cPreview.gameObject.SetActive(true);
 
-
         exampleCar.gameObject.SetActive(true);
         instructions.gameObject.SetActive(false);
         letsGo.gameObject.SetActive(false);

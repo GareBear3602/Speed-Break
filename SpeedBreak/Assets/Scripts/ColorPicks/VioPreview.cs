@@ -5,6 +5,7 @@ using UnityEngine;
 public class VioPreview : MonoBehaviour
 {
     private GameManager gameManager;
+    public GameObject vioSpot;
 
     // Start is called before the first frame update
     void Start()
@@ -21,10 +22,17 @@ public class VioPreview : MonoBehaviour
     private void OnMouseOver()
     {
         gameManager.VioPreview();
+        vioSpot.gameObject.SetActive(true);
+    }
+
+    private void OnMouseExit()
+    {
+        vioSpot.gameObject.SetActive(false);
     }
 
     private void OnMouseDown()
     {
         gameManager.CarViolet();
+        vioSpot.gameObject.SetActive(false);
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class CyanPreview : MonoBehaviour
 {
     private GameManager gameManager;
+    public GameObject cyanSpot;
 
     // Start is called before the first frame update
     void Start()
@@ -21,10 +22,17 @@ public class CyanPreview : MonoBehaviour
     private void OnMouseOver()
     {
         gameManager.CyanPreview();
+        cyanSpot.gameObject.SetActive(true);
+    }
+
+    private void OnMouseExit()
+    {
+        cyanSpot.gameObject.SetActive(false);
     }
 
     private void OnMouseDown()
     {
         gameManager.CarCyan();
+        cyanSpot.gameObject.SetActive(false);
     }
 }

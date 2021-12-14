@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
     private Vector3 spawnPos = new Vector3(0f, 0.7f, -60);
     public float spawnPosY = 0.7f;
     public float spawnPosZ = 35f;
+    public GameObject exampleCar;
 
     //Colors
     public GameObject blueCar;
@@ -63,6 +64,16 @@ public class GameManager : MonoBehaviour
     public GameObject blueButton;
     public GameObject tangButton;
     public GameObject vioButton;
+
+    public Material redColor;
+    public Material blueColor;
+    public Material tangColor;
+    public Material vioColor;
+
+    public GameObject rPreview;
+    public GameObject bPreview;
+    public GameObject tPreview;
+    public GameObject vPreview;
 
     // Start is called before the first frame update
     void Start()
@@ -96,11 +107,16 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        rPreview.gameObject.SetActive(false);
+        bPreview.gameObject.SetActive(false);
+        tPreview.gameObject.SetActive(false);
+        vPreview.gameObject.SetActive(false);
         blueButton.gameObject.SetActive(false);
         redButton.gameObject.SetActive(false);
         vioButton.gameObject.SetActive(false);
         tangButton.gameObject.SetActive(false);
         firstCamera.gameObject.SetActive(false);
+        exampleCar.gameObject.SetActive(false);
         lapSystem.gameObject.SetActive(true);
         scoreSystem.gameObject.SetActive(true);
         runGame = true;
@@ -123,7 +139,6 @@ public class GameManager : MonoBehaviour
         {
             perfectTrophy.gameObject.SetActive(true);
         }
-        PlayerPrefs.SetFloat("Score", score);
     }
 
     public void RestartGame()
@@ -153,6 +168,11 @@ public class GameManager : MonoBehaviour
 
     public void ColorPick()
     {
+        rPreview.gameObject.SetActive(true);
+        bPreview.gameObject.SetActive(true);
+        tPreview.gameObject.SetActive(true);
+        vPreview.gameObject.SetActive(true);
+        exampleCar.gameObject.SetActive(true);
         instructions.gameObject.SetActive(false);
         letsGo.gameObject.SetActive(false);
         blueButton.gameObject.SetActive(true);
@@ -183,5 +203,25 @@ public class GameManager : MonoBehaviour
     {
         Instantiate(tangCar, spawnPos, transform.rotation);
         StartGame();
+    }
+
+    public void RedPreview()
+    {
+        exampleCar.GetComponent<MeshRenderer>().material = redColor;
+    }
+
+    public void BluePreview()
+    {
+        exampleCar.GetComponent<MeshRenderer>().material = blueColor;
+    }
+
+    public void TangPreview()
+    {
+        exampleCar.GetComponent<MeshRenderer>().material = tangColor;
+    }
+
+    public void VioPreview()
+    {
+        exampleCar.GetComponent<MeshRenderer>().material = vioColor;
     }
 }

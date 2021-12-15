@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
     public float spawnPosZ = 35f;
     public GameObject exampleCar;
     public GameObject playerCar;
+    public GameObject pickColor;
 
     //Colors
     public GameObject blueCar;
@@ -83,7 +84,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         scoretext.text = "Score: " + score;
-        besttext.text = "Rings: " + best + "/42";
+        besttext.text = "Rings: " + best + "/54";
     }
 
     void Update()
@@ -106,11 +107,12 @@ public class GameManager : MonoBehaviour
         score += scoreAdd;
         best += pointAdd;
         scoretext.text = "Score: " + score;
-        besttext.text = "Rings: " + best + "/42";
+        besttext.text = "Rings: " + best + "/54";
     }
 
     public void StartGame()
     {
+        pickColor.gameObject.SetActive(false);
         rPreview.gameObject.SetActive(false);
         bPreview.gameObject.SetActive(false);
         tPreview.gameObject.SetActive(false);
@@ -135,12 +137,12 @@ public class GameManager : MonoBehaviour
         endScore.gameObject.SetActive(true);
         endBest.gameObject.SetActive(true);
         endScore.text = "Score: " + score;
-        endBest.text = "Rings: " + best + "/42";
+        endBest.text = "Rings: " + best + "/54";
         restart.gameObject.SetActive(true);
         lastCamera.gameObject.SetActive(true);
         firstCamera.gameObject.SetActive(false);
         trophy.gameObject.SetActive(true);
-        if (best == 42)
+        if (best == 54)
         {
             perfectTrophy.gameObject.SetActive(true);
         }
@@ -173,6 +175,7 @@ public class GameManager : MonoBehaviour
 
     public void ColorPick()
     {
+        pickColor.gameObject.SetActive(true);
         rPreview.gameObject.SetActive(true);
         bPreview.gameObject.SetActive(true);
         tPreview.gameObject.SetActive(true);

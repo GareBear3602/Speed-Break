@@ -25,6 +25,8 @@ public class PointTriggerSpawnTWO : MonoBehaviour
         Instantiate(pointPrefab, PointSpawn(), pointPrefab.transform.rotation);
         Instantiate(pointPrefab, PointSpawn(), pointPrefab.transform.rotation);
         Instantiate(pointPrefab, PointSpawn(), pointPrefab.transform.rotation);
+        Instantiate(pointPrefab, PointSpawn(), pointPrefab.transform.rotation);
+        Instantiate(pointPrefabTwo, PointSpawn(), pointPrefab.transform.rotation);
         Instantiate(pointPrefabTwo, PointSpawn(), pointPrefab.transform.rotation);
         Instantiate(pointPrefabTwo, PointSpawn(), pointPrefab.transform.rotation);
         Instantiate(pointPrefabTwo, PointSpawn(), pointPrefab.transform.rotation);

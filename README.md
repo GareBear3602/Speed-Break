@@ -1,7 +1,7 @@
 # Speed-Break
 
-Ever wanted to drive cars and drive through Rings?
-Well now you have the chance with SpeedBreak!
+Speedbreak is a racing game in which the player needs to complete three laps to win the race. The catch? The finish line means nothing if the player gets no points, but luckily there are some rings scattered throughout the track to help them with that.
+
 
 Controls:
   WASD to move
